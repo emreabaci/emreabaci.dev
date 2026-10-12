@@ -1,35 +1,149 @@
 /*
  * Globals
  */
+:root {
+  --navbar-height: 52px;
+}
 
+/*
+ * Base structure
+ */
+body {
+  font-family: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/**
+ * HEADER
+ */
+header {
+  height: var(--navbar-height);
+}
+
+/*OFFCANVAS
+*
+*/
+.offcanvas.show:not(.hiding),
+.offcanvas.showing {
+  height: min-content;
+}
+
+/**
+* MAIN
+*/
+#main {
+  &>section {
+    width: 100%;
+    scroll-margin-top: calc(var(--navbar-height));
+  }
+
+  &>section:not(#hero) {
+    line-height: 1.65;
+
+    p {
+      font-weight: 400;
+    }
+
+    padding-bottom: 4.045rem;
+
+    &>.container {
+      /*padding-bottom: 4.75rem;*/
+
+      &>.title {
+        padding-bottom: 2.5rem;
+      }
+    }
+  }
+}
+
+/**
+* HERO
+*/
+#hero {
+  min-height: calc(100dvh - var(--navbar-height));
+
+  img {
+    width: clamp(10rem, 12vw, 14rem);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .signature {
+    width: clamp(30rem, 36vw, 36rem);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-title {
+    font-size: 1.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 1.5rem;
+      /* 24px */
+    }
+  }
+}
+
+/**
+* EXPERIENCES
+*/
+#experiences,
+#educations {
+  & .experience:not(:last-child) {
+    margin-bottom: 1.75rem;
+  }
+
+  .experience {
+    .date {
+      min-width: 15rem;
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.25rem;
+      overflow: hidden;
+
+      .company,
+      .title {
+        margin: 0;
+      }
+
+      .title {
+        position: relative;
+
+        &.dot::before {
+          content: "·";
+          position: absolute;
+          left: -.75rem;
+        }
+      }
+    }
+  }
+}
 
 /* Custom default button */
 .btn-light,
 .btn-light:hover,
 .btn-light:focus {
   color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
+  text-shadow: none;
+  /* Prevent inheritance from `body` */
 }
-
-
-/*
- * Base structure
- */
-
-body {
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-}
-
-.cover-container {
-  max-width: 42em;
-}
-
 
 /*
  * Header
  */
-
 .nav-masthead .nav-link {
   color: rgba(255, 255, 255, .5);
   border-bottom: .25rem solid transparent;
@@ -40,11 +154,121 @@ body {
   border-bottom-color: rgba(255, 255, 255, .25);
 }
 
-.nav-masthead .nav-link + .nav-link {
+.nav-masthead .nav-link+.nav-link {
   margin-left: 1rem;
 }
 
 .nav-masthead .active {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: #fff !important;
+}
+
+
+/*
+*
+*/
+#navbar>button>svg {
+  width: auto;
+  height: 2rem;
+  fill: rgba(255, 255, 255, .5);
+}
+
+
+/**
+* SKILLS
+*/
+#skills {
+  .skill {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .row {
+    &>div {
+      article {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 1.25rem;
+        padding-top: 0;
+        padding-left: 0;
+      }
+
+    }
+  }
+}
+
+/*  
+* SERVICES
+*/
+#services {
+  .row {
+    &>div {
+      article {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 1.25rem;
+        padding-top: 0;
+        padding-left: 0;
+      }
+
+    }
+  }
+}
+
+/**
+* CONTACT
+*/
+#contact {
+  .social-medias {
+    a>svg {
+      height: 2rem;
+      width: auto;
+      fill: rgba(255, 255, 255, .75);
+    }
+  }
+}
+
+
+/**
+* CONTACT ME
+*/
+#contact-me {
+  a svg {
+    width: auto;
+    height: 1.5rem;
+  }
+}
+
+/**
+* SOCIAL MEDIAS
+*/
+.social-medias {
+  gap: 1.75rem;
+
+  svg {
+    width: auto;
+    height: 2rem;
+    fill: rgba(255, 255, 255, .75);
+  }
+
+  & > a:hover{
+    svg{
+      fill: #fff;
+    }
+  }
+
+}
+
+#offcanvasNavbar {
+  .nav-item {
+    width: fit-content;
+  }
+}
+
+footer{
+  background: rgba(0, 0, 0, .1);
 }

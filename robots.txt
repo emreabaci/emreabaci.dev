@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emreabaci.dev/sitemap.xml

@@ -236,7 +236,7 @@ header {
 /**
 * CONTACT ME
 */
-#contact-me {
+.contact-me {
   a svg {
     width: auto;
     height: 1.5rem;
@@ -271,4 +271,10 @@ header {
 
 footer{
   background: rgba(0, 0, 0, .1);
+}
+
+
+/* Turk Signature */
+.turk-signature::after{
+  content: '𐱅𐰭𐰼𐰃: 𐱅𐰇𐰼𐰜𐰇: 𐰸𐰆𐰺𐰽𐰣: 𐰋𐰀: 𐰘𐰇𐰲𐰡𐰾𐰤';
 }
